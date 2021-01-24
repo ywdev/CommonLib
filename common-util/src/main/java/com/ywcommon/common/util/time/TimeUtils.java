@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class TimeUtils {
+public final class TimeUtils {
 
     /**
      * 获取时间格式yyyy-MM-dd HH:mm:ss
