@@ -2,4 +2,8 @@
     <string name="brvah_loading">Loading...</string>
     <string name="brvah_load_failed">load more failed</string>
     <string name="brvah_load_end">No more data</string>
+
+    <string name="xpopup_cancel">cancel</string>
+    <string name="xpopup_ok">ok</string>
+    <string name="xpopup_save">save</string>
 </resources>
