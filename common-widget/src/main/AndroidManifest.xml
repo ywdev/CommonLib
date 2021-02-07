@@ -2,6 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ywcommon.common.widgetlib">
 
+    <!--适配Android R包可见性 结束-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 在 屏幕最顶部显示addview-->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-sdk tools:overrideLibrary="androidx.camera.view,
     androidx.camera:camera-camera2,
@@ -17,9 +23,7 @@
             <action android:name="android.media.action.ACTION_VIDEO_CAPTURE" />
         </intent>
     </queries>
-    <!--适配Android R包可见性 结束-->
-
-    <application>
+    <application android:requestLegacyExternalStorage="true">
         <provider
             android:name=".picture.PictureFileProvider"
             android:authorities="${applicationId}.provider"
@@ -29,7 +33,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
+        <meta-data android:name="android.notch_support" android:value="true"/>
         <activity
             android:name=".picture.PictureSelectorActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
@@ -68,6 +72,9 @@
         <activity
             android:name=".ucrop.PictureMultiCuttingActivity"
             android:theme="@style/Base.Theme.NoActionBar" />
+
+        <activity android:name=".popup.util.XPermission$PermissionActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
     </application>
 </manifest>
