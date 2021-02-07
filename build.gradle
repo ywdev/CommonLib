@@ -3,11 +3,11 @@
 buildscript {
     ext.kotlin_version = '1.4.30'
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }  // <= here
         maven { url 'https://maven.aliyun.com/repository/google' }  // <= here
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }  // <= here
 
-        google()
-        jcenter()
+//        google()
+//        jcenter()
         
     }
     dependencies {
@@ -21,11 +21,11 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }  // <= here
         maven { url 'https://maven.aliyun.com/repository/google' }  // <= here
-
-        google()
-        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }  // <= here
+//
+//        google()
+//        jcenter()
         
     }
 }
