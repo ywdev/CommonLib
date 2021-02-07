@@ -1,4 +1,4 @@
-package com.ywcommon.common.utiltest;
+package com.ywcommon.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,6 +9,8 @@ import android.view.View;
 import com.ywcommon.common.Constant;
 import com.ywcommon.common.R;
 import com.ywcommon.common.utillib.util.FragmentUtils;
+import com.ywcommon.common.utiltest.AntiShakeFragment;
+import com.ywcommon.common.widgettest.DialogSampleFragment;
 
 public class UtilBaseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +25,10 @@ public class UtilBaseActivity extends AppCompatActivity implements View.OnClickL
         if("antishake".equals(title)){
             FragmentUtils.add(getSupportFragmentManager(),
                     AntiShakeFragment.newInstance(),R.id.fragment_container);
+        }
+        if("dialog".equals(title)){
+            FragmentUtils.add(getSupportFragmentManager(),
+                    DialogSampleFragment.newInstance(),R.id.fragment_container);
         }
     }
 

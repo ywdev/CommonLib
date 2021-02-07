@@ -9,7 +9,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ywcommon.common.utiltest.UtilBaseActivity;
 import com.ywcommon.common.widgetlib.adapter.BaseQuickAdapter;
 
 import java.util.ArrayList;
