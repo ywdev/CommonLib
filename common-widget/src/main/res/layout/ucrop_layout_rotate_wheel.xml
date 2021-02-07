@@ -31,7 +31,7 @@
 
         <ImageView
             style="@style/ucrop_ImageViewWidgetIcon"
-            android:src="@drawable/ucrop_ic_reset" />
+            app:srcCompat="@drawable/ucrop_ic_reset" />
 
     </FrameLayout>
 
