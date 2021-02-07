@@ -22,7 +22,7 @@ public class UtilBaseActivity extends AppCompatActivity implements View.OnClickL
         toolbar.setNavigationOnClickListener(this);
         if("antishake".equals(title)){
             FragmentUtils.add(getSupportFragmentManager(),
-                    AntiShakeFragment.newInstance(),R.id.fragment_container,false,false);
+                    AntiShakeFragment.newInstance(),R.id.fragment_container);
         }
     }
 
