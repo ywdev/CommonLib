@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
     };
     private String [] utilList = {
             "antishake",
+            "download",
             "cache",
             "check",
             "convert",
