@@ -26,6 +26,8 @@
         <activity
             android:name=".FunctionActivity"
             android:screenOrientation="portrait" />
+
+        <service android:name=".utiltest.MyTestService"/>
     </application>
 
 </manifest>

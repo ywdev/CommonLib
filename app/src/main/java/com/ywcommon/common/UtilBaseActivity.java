@@ -10,6 +10,7 @@ import com.ywcommon.common.Constant;
 import com.ywcommon.common.R;
 import com.ywcommon.common.utillib.util.FragmentUtils;
 import com.ywcommon.common.utiltest.AntiShakeFragment;
+import com.ywcommon.common.utiltest.DownloadFragment;
 import com.ywcommon.common.widgettest.DialogSampleFragment;
 
 public class UtilBaseActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,6 +30,10 @@ public class UtilBaseActivity extends AppCompatActivity implements View.OnClickL
         if("dialog".equals(title)){
             FragmentUtils.add(getSupportFragmentManager(),
                     DialogSampleFragment.newInstance(),R.id.fragment_container);
+        }
+        if("download".equals(title)){
+            FragmentUtils.add(getSupportFragmentManager(),
+                    DownloadFragment.newInstance(),R.id.fragment_container);
         }
     }
 
