@@ -8,10 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ywcommon.common.utillib.constant.PermissionConstants;
+import com.ywcommon.common.utillib.util.log.LogUtils;
+import com.ywcommon.common.utillib.util.permission.DialogHelper;
+import com.ywcommon.common.utillib.util.permission.PermissionUtils;
 import com.ywcommon.common.widgetlib.adapter.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.OnItemClickListener {
     private String [] strings = {
@@ -61,6 +66,22 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
         MainAdapter mainAdapter = new MainAdapter(R.layout.item_main_list, Arrays.asList(strings));
         recyclerView.setAdapter(mainAdapter);
         mainAdapter.setOnItemClickListener(this);
+        PermissionUtils.permission(PermissionConstants.STORAGE)
+                .rationale(DialogHelper::showRationaleDialog)
+                .callback(new PermissionUtils.FullCallback() {
+                    @Override
+                    public void onGranted(List<String> permissionsGranted) {
+
+                    }
+
+                    @Override
+                    public void onDenied(List<String> permissionsDeniedForever, List<String> permissionsDenied) {
+                        if (!permissionsDeniedForever.isEmpty()) {
+                            DialogHelper.showOpenAppSettingDialog();
+                        }
+                        LogUtils.d(permissionsDeniedForever, permissionsDenied);
+                    }
+                }).request();
     }
 
     @Override

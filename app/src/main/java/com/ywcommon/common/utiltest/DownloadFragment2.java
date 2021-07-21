@@ -1,6 +1,8 @@
 package com.ywcommon.common.utiltest;
 
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -24,6 +26,9 @@ import com.ywcommon.common.utiltest.listener.IDownloadListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import static com.arialyy.aria.core.inf.IEntity.STATE_RUNNING;
+import static com.arialyy.aria.core.inf.IEntity.STATE_STOP;
+
 /**
  * @author yaowang
  * @version 1.0
@@ -46,6 +51,7 @@ public class DownloadFragment2 extends Fragment implements View.OnClickListener,
             downloadService = (SingleDownloadService) myBinder.getDownloadService();
             downloadService.setOnDownloadListener(DownloadFragment2.this);
             Log.d("DownloadFragment", "onServiceConnected()");
+//            downloadService.startDownload();
         }
 
         @Override
@@ -77,16 +83,30 @@ public class DownloadFragment2 extends Fragment implements View.OnClickListener,
         btnPause = view.findViewById(R.id.btn_pause);
         btnStop = view.findViewById(R.id.btn_stop);
         btnStart.setOnClickListener(this);
+        btnPause.setOnClickListener(this);
+        btnStop.setOnClickListener(this);
+        Intent intent = new Intent(getActivity(), SingleDownloadService.class);
+        getActivity().bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_start:
+                if(downloadService.getState() == STATE_STOP){
+                    downloadService.resumeDownload();
+                }else {
+                    downloadService.startDownload();
+                }
                 break;
             case R.id.btn_pause:
+                if(downloadService.getState() == STATE_RUNNING){
+                    downloadService.stopDownload();
+                }
                 break;
             case R.id.btn_stop:
+                downloadService.cancelDownload();
+                getActivity().unbindService(mConnection);
                 break;
         }
     }
@@ -98,6 +118,7 @@ public class DownloadFragment2 extends Fragment implements View.OnClickListener,
 
     @Override
     public void onProgressChange(int progress) {
-        ToastUtils.show("下载进度"+progress);
+        progressBar.setProgress(progress);
+        tvProgress.setText(progress+"%");
     }
 }
