@@ -64,11 +64,11 @@ public class SingleDownloadService extends Service {
     }
 
     public void startDownload() {
+        Aria.get(SingleDownloadService.this).getDownloadConfig().setMaxSpeed(512);
         taskId = Aria.download(SingleDownloadService.this)
                 .load(mUrl)
                 .setFilePath(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/test3.zip")
                 .create();
-        Aria.get(SingleDownloadService.this).getDownloadConfig().setMaxSpeed(512);
     }
 
     public void stopDownload() {
