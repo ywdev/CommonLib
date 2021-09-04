@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.ywcommon.common.Constant;
 import com.ywcommon.common.R;
+import com.ywcommon.common.demotest.JetpackTestFragment;
 import com.ywcommon.common.utillib.util.FragmentUtils;
 import com.ywcommon.common.utiltest.AntiShakeFragment;
 import com.ywcommon.common.utiltest.DownloadFragment;
@@ -34,6 +35,10 @@ public class UtilBaseActivity extends AppCompatActivity implements View.OnClickL
         if("download".equals(title)){
             FragmentUtils.add(getSupportFragmentManager(),
                     DownloadFragment.newInstance(),R.id.fragment_container);
+        }
+        if("jetpack".equals(title)){
+            FragmentUtils.add(getSupportFragmentManager(),
+                    JetpackTestFragment.newInstance(),R.id.fragment_container);
         }
     }
 

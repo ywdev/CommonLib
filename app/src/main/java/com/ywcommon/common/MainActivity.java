@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ywcommon.common.demotest.MyViewModel;
 import com.ywcommon.common.utillib.constant.PermissionConstants;
 import com.ywcommon.common.utillib.util.log.LogUtils;
 import com.ywcommon.common.utillib.util.permission.DialogHelper;
@@ -58,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
             "dialog"
     };
     private String [] testList = {
-            "nestfunction"
+            "nestfunction",
+            "jetpack"
     };
 
     @Override
