@@ -21,7 +21,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.OnItemClickListener {
     private String [] strings = {
             "common-util",
-            "common-widget"
+            "common-widget",
+            "common-test"
     };
     private String [] utilList = {
             "antishake",
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
     private String [] widgetList = {
             "adapter",
             "dialog"
+    };
+    private String [] testList = {
+            "nestfunction"
     };
 
     @Override
@@ -93,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
         }else if(position == 1){
             intent.putStringArrayListExtra(Constant.EXTRA_FUNCTION_LIST, new ArrayList<>(Arrays.asList(widgetList)));
             intent.putExtra(Constant.EXTRA_TITLE, "widgets");
+        }else if(position == 2){
+            intent.putStringArrayListExtra(Constant.EXTRA_FUNCTION_LIST, new ArrayList<>(Arrays.asList(testList)));
+            intent.putExtra(Constant.EXTRA_TITLE, "tests");
         }
         startActivity(intent);
 
