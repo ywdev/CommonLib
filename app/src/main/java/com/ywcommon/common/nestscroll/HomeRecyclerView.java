@@ -78,7 +78,7 @@ public class HomeRecyclerView extends RecyclerView implements NestedScrollingPar
     }
 
     private void debugLog(String paramString) {
-            Log.e("HomeRecyclerView", paramString);
+        Log.d("yaowang", paramString);
     }
 
     private void startFling(View target, float velocityY) {
@@ -88,7 +88,7 @@ public class HomeRecyclerView extends RecyclerView implements NestedScrollingPar
             this.mScrollDirection = SCROLL_DIRECTION_DOWN;
         }
         this.mCurrentFlingView = target;
-        debugLog("Scroller.fling velocityY " + velocityY + " minY: " + -Integer.MAX_VALUE + " maxY��� " + Integer.MAX_VALUE);
+        debugLog("Scroller.fling velocityY " + velocityY + " minY: " + -Integer.MAX_VALUE + " maxY: " + Integer.MAX_VALUE);
         this.mScroller.fling(0, 0, 0, (int) Math.abs(velocityY), -Integer.MAX_VALUE, Integer.MAX_VALUE, -Integer.MAX_VALUE, Integer.MAX_VALUE);
         computeScroll();
     }
