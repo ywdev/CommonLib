@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
     private String [] utilList = {
             "antishake",
             "download",
+            "permission",
             "cache",
             "check",
             "convert",
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
             "log",
             "net",
             "path",
-            "permission",
             "regex",
             "resource",
             "shell",
@@ -73,22 +73,22 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
         MainAdapter mainAdapter = new MainAdapter(R.layout.item_main_list, Arrays.asList(strings));
         recyclerView.setAdapter(mainAdapter);
         mainAdapter.setOnItemClickListener(this);
-        PermissionUtils.permission(PermissionConstants.STORAGE)
-                .rationale(DialogHelper::showRationaleDialog)
-                .callback(new PermissionUtils.FullCallback() {
-                    @Override
-                    public void onGranted(List<String> permissionsGranted) {
-
-                    }
-
-                    @Override
-                    public void onDenied(List<String> permissionsDeniedForever, List<String> permissionsDenied) {
-                        if (!permissionsDeniedForever.isEmpty()) {
-                            DialogHelper.showOpenAppSettingDialog();
-                        }
-                        LogUtils.d(permissionsDeniedForever, permissionsDenied);
-                    }
-                }).request();
+//        PermissionUtils.permission(PermissionConstants.STORAGE)
+//                .rationale(DialogHelper::showRationaleDialog)
+//                .callback(new PermissionUtils.FullCallback() {
+//                    @Override
+//                    public void onGranted(List<String> permissionsGranted) {
+//                        LogUtils.d(permissionsGranted);
+//                    }
+//
+//                    @Override
+//                    public void onDenied(List<String> permissionsDeniedForever, List<String> permissionsDenied) {
+//                        if (!permissionsDeniedForever.isEmpty()) {
+//                            DialogHelper.showOpenAppSettingDialog();
+//                        }
+//                        LogUtils.d(permissionsDeniedForever, permissionsDenied);
+//                    }
+//                }).request();
     }
 
     @Override
