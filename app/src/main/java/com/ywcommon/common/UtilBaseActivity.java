@@ -9,6 +9,7 @@ import android.view.View;
 import com.ywcommon.common.Constant;
 import com.ywcommon.common.R;
 import com.ywcommon.common.demotest.JetpackTestFragment;
+import com.ywcommon.common.nestscroll.NestScrollFragment;
 import com.ywcommon.common.utillib.util.FragmentUtils;
 import com.ywcommon.common.utiltest.AntiShakeFragment;
 import com.ywcommon.common.utiltest.DownloadFragment;
@@ -44,6 +45,10 @@ public class UtilBaseActivity extends AppCompatActivity implements View.OnClickL
         if("permission".equals(title)){
             FragmentUtils.add(getSupportFragmentManager(),
                     PermissionFragment.newInstance(), R.id.fragment_container);
+        }
+        if("nestfunction".equals(title)){
+            FragmentUtils.add(getSupportFragmentManager(),
+                    NestScrollFragment.newInstance(), R.id.fragment_container);
         }
     }
 
