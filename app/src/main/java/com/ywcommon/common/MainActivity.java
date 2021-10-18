@@ -1,5 +1,6 @@
 package com.ywcommon.common;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tbruyelle.rxpermissions3.RxPermissions;
 import com.ywcommon.common.demotest.MyViewModel;
 import com.ywcommon.common.utillib.constant.PermissionConstants;
 import com.ywcommon.common.utillib.util.log.LogUtils;
@@ -61,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
     };
     private String [] testList = {
             "nestfunction",
-            "jetpack"
+            "jetpack",
+            "SAF"
     };
 
     @Override
@@ -73,22 +76,21 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
         MainAdapter mainAdapter = new MainAdapter(R.layout.item_main_list, Arrays.asList(strings));
         recyclerView.setAdapter(mainAdapter);
         mainAdapter.setOnItemClickListener(this);
-//        PermissionUtils.permission(PermissionConstants.STORAGE)
-//                .rationale(DialogHelper::showRationaleDialog)
-//                .callback(new PermissionUtils.FullCallback() {
-//                    @Override
-//                    public void onGranted(List<String> permissionsGranted) {
-//                        LogUtils.d(permissionsGranted);
-//                    }
-//
-//                    @Override
-//                    public void onDenied(List<String> permissionsDeniedForever, List<String> permissionsDenied) {
-//                        if (!permissionsDeniedForever.isEmpty()) {
-//                            DialogHelper.showOpenAppSettingDialog();
-//                        }
-//                        LogUtils.d(permissionsDeniedForever, permissionsDenied);
-//                    }
-//                }).request();
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(permission -> {
+                    if (permission.granted) { // Always true pre-M
+
+                    } else if(permission.shouldShowRequestPermissionRationale){
+
+                    } else {
+
+                    }
+                });
+
+
+
     }
 
     @Override

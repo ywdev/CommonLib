@@ -23,6 +23,7 @@ allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/google' }  // <= here
         maven { url 'https://maven.aliyun.com/repository/jcenter' }  // <= here
+        maven { url 'https://jitpack.io' }
 //
 //        google()
 //        jcenter()
