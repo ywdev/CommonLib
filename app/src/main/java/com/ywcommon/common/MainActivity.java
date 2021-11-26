@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
     private String [] testList = {
             "nestfunction",
             "jetpack",
-            "SAF"
+            "SAF",
+            "kotlinCoroutines"
     };
 
     @Override

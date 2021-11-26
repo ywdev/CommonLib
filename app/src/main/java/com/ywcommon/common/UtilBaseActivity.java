@@ -9,6 +9,7 @@ import android.view.View;
 import com.ywcommon.common.Constant;
 import com.ywcommon.common.R;
 import com.ywcommon.common.demotest.JetpackTestFragment;
+import com.ywcommon.common.kotlin.KotlinCoroutinesFragment;
 import com.ywcommon.common.nestscroll.NestScrollFragment;
 import com.ywcommon.common.saftest.SAFFragment;
 import com.ywcommon.common.utillib.util.FragmentUtils;
@@ -54,6 +55,10 @@ public class UtilBaseActivity extends AppCompatActivity implements View.OnClickL
         if("SAF".equals(title)){
             FragmentUtils.add(getSupportFragmentManager(),
                     SAFFragment.newInstance(), R.id.fragment_container);
+        }
+        if("kotlinCoroutines".equals(title)){
+            FragmentUtils.add(getSupportFragmentManager(),
+                    KotlinCoroutinesFragment.newInstance(), R.id.fragment_container);
         }
     }
 
