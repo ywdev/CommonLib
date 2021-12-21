@@ -30,6 +30,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".demotest.CountActivity"
             />
+        <activity android:name=".maptest.ui.BaseMapActivity" />
+        <activity android:name=".maptest.app.TestMapActivity" />
 
         <service android:name=".utiltest.MyTestService"/>
         <service android:name=".utiltest.SingleDownloadService"/>
