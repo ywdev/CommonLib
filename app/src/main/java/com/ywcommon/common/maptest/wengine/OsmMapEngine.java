@@ -13,11 +13,15 @@ import com.ywcommon.common.maptest.xadapter.AGMapView;
  * @packagename： com.ywcommon.common.maptest.wengine
  */
 public class OsmMapEngine implements AGMapEngine {
+    protected AGMapView agMapView;
 
     @Override
     public AGMapView createMapView(Context context) {
         //具体创建osm地图MapView
-        return null;
+        if(agMapView == null){
+            agMapView = new OsmMapView(context);
+        }
+        return agMapView;
     }
 
     @Override

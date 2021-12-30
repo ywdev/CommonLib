@@ -1,6 +1,7 @@
 package com.ywcommon.common.maptest.ui;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class BaseMapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         AGMapView agMapView = AGMapManager.getInstance().getAGMapView(this, getMapEngine());
+        View mapView = agMapView.getMapView();
 
 
 

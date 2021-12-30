@@ -11,6 +11,8 @@ import android.view.View;
  */
 public interface AGMapView {
 
+    View getMapView();
+
 
 
 
